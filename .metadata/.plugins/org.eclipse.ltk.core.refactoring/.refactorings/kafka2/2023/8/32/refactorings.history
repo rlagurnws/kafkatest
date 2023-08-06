@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TestConsumer.java&apos; to &apos;kafka/src/main/java/com.example.demo.test&apos;&#x0D;&#x0A;- Original project: &apos;kafka2&apos;&#x0D;&#x0A;- Destination element: &apos;kafka/src/main/java/com.example.demo.test&apos;&#x0D;&#x0A;- Original element: &apos;com.example.demo.test.TestConsumer.java&apos;" description="Copy compilation unit" destination="=kafka/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.example.demo.test" element1="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.example.demo.test{TestConsumer.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1691301544308" units="1" version="1.0"/>
+</session>

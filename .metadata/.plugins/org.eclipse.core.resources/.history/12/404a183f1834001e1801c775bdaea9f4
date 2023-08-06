@@ -1,0 +1,12 @@
+package com.example.demo.test;
+
+import java.io.IOException;
+import java.util.Properties;
+
+public class TestProducer {
+	
+	public static void main(String[] args) throws IOException{
+		Properties configs = new Properties();
+		configs.put("bootstrap.servers", "localhost:9092");
+	}
+}

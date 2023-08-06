@@ -1,0 +1,11 @@
+package com.example.demo.test;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+@Service
+public class TestProducer {
+	
+	@Value(value = "${message.topic.name}")
+	private String topicName;
+}

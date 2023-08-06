@@ -1,0 +1,28 @@
+package com.example.demo.test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@CrossOrigin("*")
+@RestController
+@RequestMapping(value = "/test")
+public class TestController {
+	
+	private final KafkaTemplate<String, String> kafkaTemplate = new KafkaTemplate<>();
+	
+	private static String TOPIC_NAME = "test";
+	
+	@PostMapping
+	public String sendMessage() {
+		String messageData = "test";
+		kafkaTemplate.send(TOPIC_NAME, messageData);
+		return "성공";
+	}
+}

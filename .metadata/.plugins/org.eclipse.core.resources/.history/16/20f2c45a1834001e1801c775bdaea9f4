@@ -1,0 +1,13 @@
+package com.example.demo.test;
+
+import java.io.IOException;
+import java.util.Properties;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class TestProducer {
+	
+	@Value(value = "${message.topic.name}")
+	private String topicName;
+}
