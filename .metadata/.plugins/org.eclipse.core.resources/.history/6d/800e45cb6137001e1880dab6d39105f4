@@ -1,0 +1,28 @@
+package kafka.user.consumer;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
+
+import kafka.user.repository.UserRepository;
+
+public class UserConsumer {
+
+	@Autowired
+	private UserRepository repository;
+	
+	@KafkaListener(topics = "signUpResultByMoney", containerFactory = "userKafkaListenerContainerFactory")
+    public boolean signUpListener(Map<String, String> map) {
+		try {
+			if(map.get("result").toString().equals("success")) {
+				return true;
+			}else {
+				throw new Exception();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+    }
+}

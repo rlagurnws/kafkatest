@@ -1,0 +1,5 @@
+package kafka.user.config;
+
+public class ConsumerConfig {
+
+}

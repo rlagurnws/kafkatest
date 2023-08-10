@@ -1,0 +1,5 @@
+package kafka.money.config;
+
+public class MoneyConfig {
+
+}

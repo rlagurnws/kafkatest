@@ -1,0 +1,33 @@
+package kafka.user.consumer;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
+
+import kafka.user.producer.UserProducer;
+import kafka.user.repository.UserRepository;
+
+public class UserConsumer {
+
+	@Autowired
+	private UserRepository repository;
+	
+	@Autowired
+	private UserProducer mp;
+	
+	@KafkaListener(topics = "signUpResultByMoney", containerFactory = "moneyKafkaListenerContainerFactory")
+    public boolean signUpListener(Map<String, Object> map) {
+		try {
+			if(map.get("result").toString().equals("success")) {
+				return true;
+			}else {
+				throw new Exception();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("TestConsumer Error");
+		}
+    }
+}

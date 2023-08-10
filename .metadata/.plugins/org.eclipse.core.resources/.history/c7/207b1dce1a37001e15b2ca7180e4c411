@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /kafka/
+
+spring:
+  application:
+    name : customer-service
+  kafka:
+    consumer:
+      group-id: testC
+      auto-offset-reset: earliest
+      key-deserializer:
+        org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer:
+        org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers:
+      - localhost:9092
+      
+kafka:
+  bootstrapAddress: localhost:9092

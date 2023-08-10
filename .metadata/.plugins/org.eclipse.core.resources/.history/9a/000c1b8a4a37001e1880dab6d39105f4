@@ -1,0 +1,23 @@
+package kafka.consumer;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
+
+public class SignUpConsumer {
+	
+	@Autowired
+	private MoneyRepository repository;
+	
+	
+	@KafkaListener(topics = "login", containerFactory = "userKafkaListenerContainerFactory")
+    public boolean signUpListener(String str) {
+		try {
+			
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("TestConsumer Error");
+			return false;
+		}
+    }
+}

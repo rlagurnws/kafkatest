@@ -1,0 +1,6 @@
+package kafka.money.producer;
+
+
+public class MoneyProducer {
+	
+}

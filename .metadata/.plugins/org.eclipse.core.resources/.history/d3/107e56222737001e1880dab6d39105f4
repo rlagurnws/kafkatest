@@ -1,0 +1,5 @@
+package kafka.repository;
+
+public interface MoneyRepository {
+
+}

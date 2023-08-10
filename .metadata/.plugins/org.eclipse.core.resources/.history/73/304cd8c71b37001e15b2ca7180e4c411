@@ -1,0 +1,5 @@
+package kafka.User.Entity;
+
+public class UserEntity {
+
+}

@@ -1,0 +1,9 @@
+package kafka.user.repository;
+
+import javax.persistence.Entity;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRepository extends CrudRepository<UserEntity,String>{
+
+}

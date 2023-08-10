@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /kafka/
+
+spring:
+  application:
+    name : customer-service
+  kafka:
+    consumer:
+      group-id: testC
+      auto-offset-reset: earliest
+      key-deserializer:
+        org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer:
+        org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers:
+      - localhost:9092
+
+	datasource:
+	    driver-class-name: com.mysql.cj.jdbc.Driver
+	    url: jdbc:mysql://localhost:3306/team3boot?characterEncoding=UTF-8&serverTimezone=UTC
+	    username: team3
+	    password: team3
+	  jpa:
+	    show-sql: true
+	    hibernate:
+	      ddl-auto: none    
+
+      
+kafka:
+  bootstrapAddress: localhost:9092

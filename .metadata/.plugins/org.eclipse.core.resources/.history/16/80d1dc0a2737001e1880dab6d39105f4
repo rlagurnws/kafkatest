@@ -1,0 +1,5 @@
+package kafka.repository;
+
+@Repository
+public class MoneyRepository {
+}

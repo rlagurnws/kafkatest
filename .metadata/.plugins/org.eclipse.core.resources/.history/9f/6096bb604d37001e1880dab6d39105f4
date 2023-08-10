@@ -1,0 +1,5 @@
+package kafka.user.consumer;
+
+public class UserConsumer {
+
+}

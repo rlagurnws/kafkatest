@@ -1,0 +1,22 @@
+package kafka.user.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import kafka.user.domain.UserEntity;
+import kafka.user.repository.UserRepository;
+
+@RestController
+public class UserController {
+	
+	@Autowired
+	private UserRepository repository;
+	
+	@PostMapping
+	public String signUp(UserEntity user) {
+		repository.save(user);
+		
+		return user.toString();
+	}
+}

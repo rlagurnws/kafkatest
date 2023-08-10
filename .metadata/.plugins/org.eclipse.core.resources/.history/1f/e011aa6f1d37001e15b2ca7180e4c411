@@ -1,0 +1,6 @@
+package kafka.user.domain;
+
+
+public class UserDTO {
+	
+}

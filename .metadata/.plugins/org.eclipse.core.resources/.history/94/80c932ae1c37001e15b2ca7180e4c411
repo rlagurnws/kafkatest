@@ -1,0 +1,5 @@
+package kafka.user.controller;
+
+public class UserController {
+
+}

@@ -1,0 +1,5 @@
+package kafka.money.Entity;
+
+public class MoneyEntity {
+
+}

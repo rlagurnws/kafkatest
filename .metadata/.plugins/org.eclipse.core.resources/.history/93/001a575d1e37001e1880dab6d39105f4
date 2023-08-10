@@ -1,0 +1,43 @@
+package kafka;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
+
+
+@Service
+public class UserProducer {
+	
+	private final KafkaTemplate<String, UserEntity> userKafkaTemplate;
+    
+    @Autowired
+    public UserProducer(KafkaTemplate kafkaTemplate) {
+    	userKafkaTemplate = kafkaTemplate;
+    }
+
+    @Value(value = "test")
+    private String userTopicName;
+
+    public void publishOrder(String string) {
+        System.out.println("======>>>" + string);
+
+        ListenableFuture<SendResult<String, String>> future = userKafkaTemplate.send(userTopicName, string);
+
+        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+
+            @Override
+            public void onSuccess(SendResult<String, String> result) {
+            	System.out.println("TestProducer Success");
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+            	System.out.println("TestProducer Fail");
+            }
+        });
+    }
+}
