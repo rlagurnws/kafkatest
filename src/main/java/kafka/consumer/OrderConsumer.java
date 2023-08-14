@@ -1,10 +1,5 @@
 package kafka.consumer;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -36,10 +31,9 @@ public class OrderConsumer {
 			}
 			uRepository.save(user);
 			oRepository.save(request);
-			return request;
 		}else {
 			request.setResult("없는 사용자");
-			return request;
 		}
+		return request;
 	}
 }
